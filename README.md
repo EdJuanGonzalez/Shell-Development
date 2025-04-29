@@ -2,6 +2,12 @@
 ## Project 1: Shell
 Note: Copy of my Temple University Repository for an assignment.
 
+In this homework, you’ll be building a shell, similar to the tsch shell you use on your CIS Linux2 system. When you open a terminal window on your computer, you are running a shell program. The purpose of a shell is to provide an interface for users to access an operating system’s services, which include file and process management, or execute programs. sh (Bourne shell) is the original Unix shell, and there are many different flavors of shells available. Some other examples include ksh (Korn shell), bash (GNU Bourne again shell), and zsh (Z shell). Shells can be interactive or non-interactive.
+
+For instance, you are using tsch non-interactively when you run a tsch script (series of commnds). tsch is interactive when invoked without arguments, or when the -i flag is explicitly provided. The operating system kernel provides well-documented interfaces for building shells. By building your own, you’ll become more familiar with these interfaces, and you’ll probably learn more about other shells as well.
+
+The overall project is organized in steps to help guide your design/implementation.
+
 ## Deliverable 1
 help: outputs a text file containing information about the built in functions, what they do, and how to use them
     Note: the txt file in question is in same directory as the program
