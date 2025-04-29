@@ -1,0 +1,11 @@
+Functions:
+
+help: prints out all information about built in commands
+
+exit: exits shell "ends program"
+
+pwd: prints out current working directory;
+
+cd <directory> : changes the current working directory
+
+wait: causes program to wait for all background processes to finish

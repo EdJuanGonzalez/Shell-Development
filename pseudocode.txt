@@ -1,0 +1,105 @@
+main(): 
+    This function uses a while loop with the input 1 to mimic a shell.
+    It takes inputs from user using: 
+        fgets(input, sizeof(input), stdin); 
+
+    The parse function is used to split commands based on certain delimiters into an array
+    Uses if statements to determine which command was entered
+    Uses strcmp() for comparison
+    ex: if (strcmp(array[i], "exit") == 0)
+
+    free(): used to free array once done
+
+    Also checks for > < | and & before checking built in functions:
+        done by calling functions that check
+    
+cd(char *path):
+    This function uses chdir() to change the current working directory
+    parameter path is a char pointer containing the name or location of the directory inputted by the user 
+    uses:
+        if(chdir(path)!= 0) to check for failure
+
+pwd(): 
+    This function displays the current working directory path
+    char array[1000] to store the path
+    getcwd(path, pathsize) to get and store the current working directory path
+    printf() to display it
+
+exit():
+    This function exits the program to mimic stopping the shell.
+    uses exit(1);
+
+help(char *helpdirectory):
+    This function displays the content of a text file containing informaton about the built in commands, what they do, and how to use them
+    the parameter is always the initial current working directory
+    gets sent the initial current working directory path and concatenates it with the name of the help.txt file
+    char *pathName = "help.txt";
+    File * using open(pathName);
+    checks to see if it was successful and if not prints out error
+    Uses strcat and strcpy to make the proper path
+
+int external(char **array, int redirection_flag, char *outputFile, char *inputFile, int *array_length):
+    This function does multiple things including redirecting and absolute path checking, and external command checking
+
+    fork() process
+
+    if (child):
+
+        redirection_flag is used to determine if redirection is required or not and if it is which type
+        if (redirection_flag == input value):
+            int file = open(inputfile, parameters);
+            dup2(file, 0)
+    
+        else if (redirection_flag == output value):
+            same as if except used outputFile and dup2(file, 1)
+
+        else if (redirection_flag = both value):
+            open() 2 files and dup2 twice
+
+        int = execv(): used to check if user provided path to executable as opposed to just name
+
+        if (not path to executable):
+            Uses getenv("Path) to get a string with all the executable folders
+            parse(string, :) returns an array that holds all the folder paths
+            loop (size of array):
+            char[1000] used to copy path to
+            strcmp(): used to copy string
+            strcat(path,"/")
+            strcat(path, array[0]);
+    if (parent):
+        waitpid(pid, &status)
+        get status to determine how the child exited
+        if (successful)
+            return 1
+        if (failure)
+            return 0
+
+    always check for errors throughout
+    
+pipes(char *command 1, char *command2):
+    This function is used for piping
+    int pipe_id[2]
+    pid_t pid1, pid2
+    use pipe(pipe_id) to make the pipe
+    use read() and write() while in child processes
+    pid1 = fork():
+        if statements to check if fork() was successful and to check which process we are in
+        close(): used to close ends of pipes
+        execv to execute commands
+        wait() to ensure child processes are finished
+
+    repeat for pid2
+
+    ensure both children finish first by using two waitid() calls
+
+background(char** array):
+    This function gets called if last element in the array is &
+    pid_t = fork();
+    execv(path of executable)
+    uses if statements to check which process are we in
+    calls wait(pid of bacground process) to ensure the background process finishes
+
+wait():
+    This function is used to ensure that all background processes complete before continuing
+    while there are background processes remaining:
+        wait() for any process to finish and update status
