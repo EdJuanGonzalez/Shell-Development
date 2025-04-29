@@ -1,6 +1,6 @@
 # Project-1-S24
 ## Project 1: Shell
-Note: Copy of my Temple University Repository for an assignment.
+Note: Copy of my Temple University Lab Repository.
 
 In this homework, you’ll be building a shell, similar to the tsch shell you use on your CIS Linux2 system. When you open a terminal window on your computer, you are running a shell program. The purpose of a shell is to provide an interface for users to access an operating system’s services, which include file and process management, or execute programs. sh (Bourne shell) is the original Unix shell, and there are many different flavors of shells available. Some other examples include ksh (Korn shell), bash (GNU Bourne again shell), and zsh (Z shell). Shells can be interactive or non-interactive.
 
