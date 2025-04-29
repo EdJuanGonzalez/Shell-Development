@@ -1,5 +1,6 @@
 # Project-1-S24
 ## Project 1: Shell
+Note: Copy of my Temple University Repository for an assignment.
 
 ## Deliverable 1
 help: outputs a text file containing information about the built in functions, what they do, and how to use them
